@@ -63,7 +63,7 @@ Cf: https://prettier.io/docs/en/index.html
 
 ## Déclencher le formatage à la sauvegarde
 
-Configurer la propriété `formatOnSave` de VS Code à vrai depuis l'interfaces des préférences, ou en ajoutant la ligne ci-dessous dans le fichier `settings.json`.
+Configurer la propriété `code Actions OnSave` de VS Code à vrai depuis l'interfaces des préférences, ou en ajoutant la ligne ci-dessous dans le fichier `settings.json`.
 ```
 "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
