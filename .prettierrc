@@ -4,5 +4,7 @@
 	"tabwidth": 4,
 	"useTabs": true,
 	"trailingComma": "all",
-	"printWidth": 120
+	"printWidth": 120,
+	"endOfLine": "auto",
+	"htmlWhitespaceSensitivity": "css"
 }
