@@ -1,9 +1,14 @@
 {
-    "extends": [
-        "plugin:prettier/recommended"
-    ],
-    "plugins": ["prettier"],
-    "rules": {
-        "prettier/prettier": "error"
-    }
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["@typescript-eslint", "prettier"],
+	"rules": {
+		"prettier/prettier": "error"
+	}
 }

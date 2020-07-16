@@ -14,10 +14,7 @@ Installer les extensions **EsLint** et **Prettier - Code formatter** et vérifie
 ## Installation des dépendances
 
 Les dépendances peuvent être installer sous forme de dépendances du projet avec la commande :
-`npm i -D eslint eslint-config-prettier eslint-plugin-prettier prettier`
-
-ou de manière globale avec la commande :
-`npm i -g eslint eslint-config-prettier eslint-plugin-prettier prettier`
+`npm i --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier prettier`
 
 **eslint-plugin-prettier**: Permet l'intégration de Prettier dans ESLint en tant que plugin de celui-ci.
 **eslint-config-prettier**: Permet de désactiver dans ESLint les règles pouvant entrer en conflit avec Prettier.
@@ -30,15 +27,18 @@ Créer un fichier nommé `.eslintrc` à la racine de votre projet avec le conten
 
 ```
 {
-  "extends": [
-    "plugin:prettier/recommended"
-  ],
-
-  "plugins": ["prettier"],
-
-  "rules": {
-    "prettier/prettier": "error"
-  }
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["@typescript-eslint", "prettier"],
+	"rules": {
+		"prettier/prettier": "error"
+	}
 }
 ```
 
@@ -49,12 +49,13 @@ Créer ensuite un fichier `.prettierrc` à la racine de votre projet avec le con
 
 ```
 {
-  "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "useTabs": false
+	"semi": true,
+	"singleQuote": true,
+	"tabwidth": 4,
+	"useTabs": true,
+	"trailingComma": "all",
+	"printWidth": 120
 }
-
 ```
 
 (Il s'agit ici de quelques règles basiques, à titre d'exemple. Elles sont évidement personnalisables et doivent être personnalisées à votre convenance.
@@ -63,4 +64,8 @@ Cf: https://prettier.io/docs/en/index.html
 ## Déclencher le formatage à la sauvegarde
 
 Configurer la propriété `formatOnSave` de VS Code à vrai depuis l'interfaces des préférences, ou en ajoutant la ligne ci-dessous dans le fichier `settings.json`.
-`"editor.formatOnSave": true,`
+```
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+}
+```
